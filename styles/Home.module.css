@@ -1,0 +1,177 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.contentArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sideArea {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px 10px;
+}
+
+
+.main {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px 0px;
+}
+
+.mainArticle {
+  margin-bottom: 20px;
+}
+
+.relatedNews {
+  margin-top: 20px;
+}
+
+.relatedNews ul {
+  list-style: none;
+  padding: 0;
+}
+
+.relatedNews li {
+  background-color: #e9ecef;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.footer {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .contentArea {
+    flex-direction: column;
+  }
+
+  .newsList, .main, .sidebar {
+    max-width: none;
+    margin-right: 0;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+}
+
+.advertisementArea {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.newsHeader {
+  position: relative;
+  height: 400px; /* 画像の高さと一致させる */
+  width: 100%; /* コンテナの幅を指定 */
+  overflow: hidden; /* はみ出した画像を隠す */
+}
+
+.newsThumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; /* コンテナの幅に合わせる */
+}
+
+.newsThumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* 画像がコンテナに収まるように調整 */
+}
+
+.newsTitle {
+  position: absolute;
+  bottom: 0; /* コンテナの下部に配置 */
+  left: 0;
+  width: 100%; /* タイトルの幅をコンテナの幅に合わせる */
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明の背景でテキストを強調 */
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+}
+
+.newsLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+
+.newsList {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px; /* リスト全体のパディングを調整 */
+}
+
+.newsList .newsItem {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  line-height: 5px;
+}
+
+.relatedNews .newsItem {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.newsItem:hover {
+  transform: translateY(-3px); /* ホバー時の動きを少し控えめにする */
+}
+
+.newsImage {
+  width: 60px; /* 画像のサイズを小さくする */
+  height: 60px;
+  margin-right: 8px; /* テキストとの間隔を調整 */
+  overflow: hidden;
+  border-radius: 10%; 
+}
+
+.newsText {
+  font-size: 14px; /* テキストのフォントサイズを小さくする */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* 長いテキストは省略記号で表示 */
+}
