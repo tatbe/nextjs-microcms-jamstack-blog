@@ -33,16 +33,7 @@ export const getStaticPaths = async () => {
 
 export default function Blog({ blogs, itemId }) {
     const blog = blogs.find(element => element.id === itemId) || {};
-    //
-    const relatedNewsItems = [
-        { id: 1, title: '関連ニュースタイトル1' },
-        { id: 2, title: '関連ニュースタイトル2' },
-        { id: 3, title: '関連ニュースタイトル3' },
-        { id: 4, title: '関連ニュースタイトル4' },
-        { id: 5, title: '関連ニュースタイトル5' },
-        { id: 6, title: '関連ニュースタイトル6' },
-      ];
-      //
+
     return (
         <div className={styles.container}>
             <Meta title="チャグのニュースサイト" />
@@ -73,7 +64,7 @@ export default function Blog({ blogs, itemId }) {
                 <article className={styles.mainArticle}>
                     <div className={styles.newsHeader}>
                         <div className={styles.newsThumbnail}>
-                            <Image src={blog.thumbnail.url} alt="ニュースサムネイル" layout="fill" objectFit="cover" />
+                            <Image src={blog.thumbnail?.url || '/default-thumbnail.jpg'} alt="ニュースサムネイル" layout="fill" objectFit="cover" />
                         </div>
                         <h2 className={styles.newsTitle}>{blog.title || 'タイトルがありません'}</h2>
                     </div>
