@@ -4,6 +4,7 @@ import Meta from "../../components/Meta";
 import NewsList from "../../components/NewsList";
 import { client } from "../../libs/client";
 import styles from "../../styles/Home.module.css"
+import '../../styles/globals.css';
 import RelatedNews from "../../components/RelatedNews";
 import Footer from "../../components/Footer";
 import Link from "next/link";
@@ -33,13 +34,13 @@ export const getStaticPaths = async () => {
 
 export default function Blog({ blogs, itemId }) {
     const blog = blogs.find(element => element.id === itemId) || {};
-
+    const category = blog.category;
     return (
         <div className={styles.container}>
-            <Meta title="チャグのニュースサイト" />
+            <Meta title="チャグのニュース" />
             {/* <Header /> */}
             <header className={styles.header}>
-            <h1>チャグのニュースサイト</h1>
+            <h1>チャグのニュース</h1>
             </header>
             {/*  */}
 
@@ -52,8 +53,8 @@ export default function Blog({ blogs, itemId }) {
 
                 <section className={styles.newsList}>
                     <h2>最新ニュース</h2>
-                    {blogs ? blogs.map((blog) => (
-                        <Link key={blog.id} href={`blog/${blog.id}`}>
+                    {blogs ? blogs.slice(0, 5).map((blog) => (
+                        <Link key={blog.id} href={`/blog/${blog.id}`}>
                             <article key={blog.id} className={styles.newsItem}>
                                 <h3>{blog.title}</h3>
                             </article>
@@ -76,7 +77,11 @@ export default function Blog({ blogs, itemId }) {
                     <section className={styles.relatedNews}>
                         <h3>関連ニュース</h3>
                         <ul>
-                            {blogs ? blogs.map((blog) => (
+                            {/* 同カテゴリーの最新10件まで表示 */}
+                            {blogs ? blogs
+                                .filter(blog => blog.category === category) // 'ニュース'に一致するブログのみをフィルタリング
+                                .slice(0, 10) // 最初の10件のみを取得
+                                .map((blog) => (
                                 <li key={blog.id} className={styles.newsItem}>
                                     <Link href={`/blog/${blog.id}`}>
                                             <div className={styles.newsImage}>
@@ -109,7 +114,7 @@ export default function Blog({ blogs, itemId }) {
 
             {/* <Footer /> */}
             <footer className={styles.footer}>
-                © 2024 ニュースサイト
+                © 2024 チャグのニュース
             </footer>
             {/*  */}
         </div>
