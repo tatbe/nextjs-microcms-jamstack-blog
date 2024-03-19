@@ -39,19 +39,17 @@ export default function Blog({ blogs, itemId }) {
         <div className={styles.container}>
             <Meta title="チャグのニュース" />
             {/* <Header /> */}
-            <header className={styles.header}>
-            <h1>チャグのニュース</h1>
-            </header>
+            <Link href="/" className={styles.headerLink}>
+                <header className={styles.header}>
+                <h1>チャグのニュース</h1>
+                </header>
+            </Link>
             {/*  */}
 
             <div className={styles.contentArea}>
-                {/* <NewsList blogs={blogs} /> */}
-
-                {/*  */}
-
                 <main className={styles.main}>
-
                 <section className={styles.newsList}>
+                    {/* <NewsList blogs={blogs} /> */}
                     <h2>最新ニュース</h2>
                     {blogs ? blogs.slice(0, 5).map((blog) => (
                         <Link key={blog.id} href={`/blog/${blog.id}`}>
@@ -60,6 +58,7 @@ export default function Blog({ blogs, itemId }) {
                             </article>
                         </Link>
                     )) : <p>ブログがありません。</p>}
+                    {/*  */}
                 </section>
 
                 <article className={styles.mainArticle}>
@@ -70,7 +69,7 @@ export default function Blog({ blogs, itemId }) {
                         <h2 className={styles.newsTitle}>{blog.title || 'タイトルがありません'}</h2>
                     </div>
                     <p>{blog.publishedAt ? new Date(blog.publishedAt).toLocaleDateString('ja-JP') : '日付がありません'}</p>
-                    <div dangerouslySetInnerHTML={{ __html: blog.body || '' }} />
+                    <div className={styles.post} dangerouslySetInnerHTML={{ __html: blog.body || '' }} />
                 </article>
 
                     {/* <RelatedNews /> */}
@@ -99,8 +98,6 @@ export default function Blog({ blogs, itemId }) {
                             )) : <p>ブログがありません。</p>}
                         </ul>
                     </section>
-
-
                     {/*  */}
                 </main>
                 
