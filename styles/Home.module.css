@@ -182,8 +182,10 @@
 }
 
 .newsText {
-  font-size: 14px; /* テキストのフォントサイズを小さくする */
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; /* 長いテキストは省略記号で表示 */
+  display: block; /* spanをブロック要素として扱う */
+  word-wrap: break-word; /* 長い単語も折り返し可能にする */
+  overflow-wrap: break-word; /* 長い単語を折り返してコンテンツのはみ出しを防ぐ */
+  max-width: 100%; /* 親要素の幅に合わせる */
+  text-overflow: ellipsis; /* はみ出したテキストを省略記号で表示 */
+  white-space: normal; /* テキストを適切に折り返す */
 }
