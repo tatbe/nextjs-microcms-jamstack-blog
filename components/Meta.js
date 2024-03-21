@@ -6,7 +6,7 @@ function Meta({ title, blog }) {
   // blog が undefined の場合のデフォルト値を設定
   const blogTitle = blog?.title || 'チャグのニュース';
   const blogDescription = blog?.description || '2024年の注目トレンドを徹底解説: VTuber、ゲーム業界の最新動向、ソーシャルメディアの進化';
-  const blogThumbnailUrl = blog?.thumbnailUrl || '/default-thumbnail.jpg';
+  const blogThumbnailUrl = blog?.thumbnail?.url || '/default-thumbnail.jpg';
 
   return (
       <Head>

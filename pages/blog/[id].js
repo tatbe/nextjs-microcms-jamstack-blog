@@ -10,6 +10,7 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 import TwitterShareButton from "../../components/TwitterShareButton";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 // SSG
 export const getStaticProps = async (context) => {

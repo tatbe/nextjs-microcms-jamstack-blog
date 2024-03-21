@@ -48,7 +48,7 @@ export default function Home({ blogs }) {
         <article className={styles.article}>
           <h2>{blog.title || 'タイトルがありません'}</h2>
           <p className={styles.publishedAt}>{blog.publishedAt || '日付がありません'}</p>
-          <Image src="/thumbnail.jpg" alt="サムネイル" width={640} height={360} />
+          <Image src={blog.thumbnail?.url || '/default-thumbnail.jpg'} alt="ニュースサムネイル" fill style={{ objectFit: 'cover' }} />
           <p dangerouslySetInnerHTML={{ __html: `${blog.body || ''}`}} className={styles.post}></p>
         </article>
 
