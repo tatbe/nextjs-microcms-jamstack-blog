@@ -8,6 +8,8 @@ import '../../styles/globals.css';
 import RelatedNews from "../../components/RelatedNews";
 import Footer from "../../components/Footer";
 import Link from "next/link";
+import TwitterShareButton from "../../components/TwitterShareButton";
+import { useEffect, useState } from "react";
 
 // SSG
 export const getStaticProps = async (context) => {
@@ -35,9 +37,18 @@ export const getStaticPaths = async () => {
 export default function Blog({ blogs, itemId }) {
     const blog = blogs.find(element => element.id === itemId) || {};
     const category = blog.category;
+    
+    // XポストReferenceError: window is not defined対策
+    const [url, setUrl] = useState('');
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setUrl(`${window.location.origin}/blog/${blog.id}`);
+        }
+    }, [blog.id]);
+
     return (
         <div className={styles.container}>
-            <Meta title="チャグのニュース" />
+            <Meta title="チャグのニュース" blog={blog} />
             {/* <Header /> */}
             <Link href="/" className={styles.headerLink}>
                 <header className={styles.header}>
@@ -61,14 +72,26 @@ export default function Blog({ blogs, itemId }) {
                     {/*  */}
                 </section>
 
+                {/* メインエリア */}
                 <article className={styles.mainArticle}>
+                    {/* サムネ */}
                     <div className={styles.newsHeader}>
                         <div className={styles.newsThumbnail}>
                             <Image src={blog.thumbnail?.url || '/default-thumbnail.jpg'} alt="ニュースサムネイル" layout="fill" objectFit="cover" />
                         </div>
                         <h2 className={styles.newsTitle}>{blog.title || 'タイトルがありません'}</h2>
                     </div>
+                    {/* 投稿日 */}
                     <p>{blog.publishedAt ? new Date(blog.publishedAt).toLocaleDateString('ja-JP') : '日付がありません'}</p>
+                    
+                    {/* Ｘポストボタン */}
+                    {url && <TwitterShareButton 
+                        title={blog.title} 
+                        url={url} 
+                        hashtags="チャグのニュース"
+                    />}
+
+                    {/* 本文 */}
                     <div className={styles.post} dangerouslySetInnerHTML={{ __html: blog.body || '' }} />
                 </article>
 
