@@ -37,8 +37,8 @@ export default function Home({ blogs }) {
 
   return (
     <div className={styles.container}>
-      <Meta title="チャグのニュースサイト" description="最新のネットトレンド、人気アニメ、話題のゲームに関する深掘りレビューと分析を提供。" />
-
+      
+      <Meta title="チャグのニュース" blog={blog} />
       <Header />
 
       <NewsList blogs={blogs} />
