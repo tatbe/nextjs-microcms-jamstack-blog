@@ -1,5 +1,6 @@
 // components/Meta.js
 import Head from 'next/head';
+import Script from 'next/script';
 
 function Meta({ title, blog }) {
   // blog が undefined の場合のデフォルト値を設定
@@ -16,7 +17,7 @@ function Meta({ title, blog }) {
           <meta name="twitter:title" content={blogTitle} />
           <meta name="twitter:description" content={blogDescription} />
           <meta name="twitter:image" content={blogThumbnailUrl} />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-SNFNEYEJX3"></script>
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-SNFNEYEJX3" strategy="afterInteractive" />
           <script
               dangerouslySetInnerHTML={{
                   __html: `

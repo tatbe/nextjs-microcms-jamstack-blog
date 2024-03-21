@@ -77,7 +77,7 @@ export default function Blog({ blogs, itemId }) {
                     {/* サムネ */}
                     <div className={styles.newsHeader}>
                         <div className={styles.newsThumbnail}>
-                            <Image src={blog.thumbnail?.url || '/default-thumbnail.jpg'} alt="ニュースサムネイル" layout="fill" objectFit="cover" />
+                            <Image src={blog.thumbnail?.url || '/default-thumbnail.jpg'} alt="ニュースサムネイル" fill style={{ objectFit: 'cover' }} />
                         </div>
                         <h2 className={styles.newsTitle}>{blog.title || 'タイトルがありません'}</h2>
                     </div>
