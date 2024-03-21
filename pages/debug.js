@@ -32,6 +32,7 @@ export const getStaticProps = async () => {
 // };
 
 export default function Home({ blogs }) {
+  console.log(blogs);
   const itemId = 'sehk-bjrk';
   const blog = blogs.find(element => element.id === itemId) || {}; // デフォルト値を設定
 
