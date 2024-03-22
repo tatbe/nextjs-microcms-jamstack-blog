@@ -28,6 +28,8 @@ function Meta({ title, blog }) {
                   `,
               }}
           />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5463349623390342"
+            crossorigin="anonymous"></script>
       </Head>
   );
 }
