@@ -10,8 +10,8 @@ function Meta({ title, blog }) {
 
   return (
       <Head>
-          <title>{title}</title>
-          <meta name="description" content="2024年の注目トレンドを徹底解説: VTuber、ゲーム業界の最新動向、ソーシャルメディアの進化、そしてそれらが如何にして今日のポップカルチャーを形成しているか。デジタルとエンターテインメントの交差点で起こる革新的変化を、詳細な分析とともにお届けします。" />
+          <title>{blogTitle + " | " + title}</title>
+          <meta name="description" content={blogDescription} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@yourTwitterHandle" />
           <meta name="twitter:title" content={blogTitle} />
@@ -30,6 +30,7 @@ function Meta({ title, blog }) {
           />
         <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5463349623390342"
             crossorigin="anonymous" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
   );
 }
