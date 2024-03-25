@@ -1,16 +1,12 @@
 import Image from "next/image";
-import Header from "../../components/Header";
 import Meta from "../../components/Meta";
-import NewsList from "../../components/NewsList";
 import { client } from "../../libs/client";
 import styles from "../../styles/Home.module.css"
 import '../../styles/globals.css';
-import RelatedNews from "../../components/RelatedNews";
 import Footer from "../../components/Footer";
 import Link from "next/link";
 import TwitterShareButton from "../../components/TwitterShareButton";
 import { useEffect, useState } from "react";
-import Script from "next/script";
 
 // SSG
 export const getStaticProps = async (context) => {
@@ -133,11 +129,7 @@ export default function Blog({ blogs, itemId }) {
                 </section> */}
             </div>
 
-            {/* <Footer /> */}
-            <footer className={styles.footer}>
-                © 2024 チャグのニュース
-            </footer>
-            {/*  */}
+            <Footer />
         </div>
     );
 }

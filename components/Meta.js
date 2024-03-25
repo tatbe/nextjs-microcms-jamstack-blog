@@ -18,7 +18,7 @@ function Meta({ title, blog }) {
           <meta name="twitter:description" content={blogDescription} />
           <meta name="twitter:image" content={blogThumbnailUrl} />
           <Script src="https://www.googletagmanager.com/gtag/js?id=G-SNFNEYEJX3" strategy="afterInteractive" />
-          <script
+          <Script
               dangerouslySetInnerHTML={{
                   __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -28,8 +28,8 @@ function Meta({ title, blog }) {
                   `,
               }}
           />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5463349623390342"
-            crossorigin="anonymous"></script>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5463349623390342"
+            crossorigin="anonymous" />
       </Head>
   );
 }

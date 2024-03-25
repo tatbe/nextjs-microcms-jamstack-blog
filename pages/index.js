@@ -7,6 +7,7 @@ import { client } from "../libs/client"
 import Meta from "../components/Meta";
 import styles from "../styles/Home.module.css"
 import '../styles/globals.css';
+import Footer from "../components/Footer";
 
 // SSG
 export const getStaticProps = async () => {
@@ -56,11 +57,7 @@ export default function Home({ blogs }) {
                 </section> */}
             </div>
 
-            {/* <Footer /> */}
-            <footer className={styles.footer}>
-                © 2024 チャグのニュース
-            </footer>
-            {/*  */}
+            <Footer />
         </div>
     );
 }
