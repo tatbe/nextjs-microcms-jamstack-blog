@@ -28,8 +28,7 @@ function Meta({ title, blog }) {
                   `,
               }}
           />
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5463349623390342"
-            crossorigin="anonymous" />
+        <meta name="google-adsense-account" content="ca-pub-5463349623390342"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
   );
