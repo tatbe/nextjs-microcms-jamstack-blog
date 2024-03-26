@@ -38,7 +38,7 @@
   flex: 1;
   padding: 20px;
   margin: 10px 0px;
-  max-width: 100%;
+  max-width: 900px;
 }
 
 .mainArticle {
@@ -102,9 +102,9 @@
 }
 .newsHeader {
   position: relative;
-  height: 400px; /* 画像の高さと一致させる */
   width: 100%; /* コンテナの幅を指定 */
   overflow: hidden; /* はみ出した画像を隠す */
+  padding-top: 55.5%;
 }
 
 .newsThumbnail {
